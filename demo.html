@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <title>Filterr-IPFS Demo</title>
+  <style>
+    .span_cid {
+      font-size: .8em;
+      color: white;
+    }
+  </style>
+</head>
+
+<body onload="onBodyLoad()">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <script src="/cidFeed/script"></script>
+
+  <script>
+    function onBodyLoad() {
+      var blockNsfw = true;
+
+      function refreshCIDs() {
+        let cidList = [
+          'QmW94MHGtU3RCFmL2P87Q5Yxd1VkaQUv1h8kQrJzbYufvw',
+          'Qmb6K7kBaKdw7TTG3oU1acNwyQd75iD1uuZuzytVvt6fXN',
+          'QmbmR55fd9ugd66HH4hJrMksCkPvjH3dRGkDrqTZTS75y8',
+          'QmbmR55fd9ugd66HH4hJrMksCkPvjH3dRGkDrqTZTS75y8',
+          'QmearXhonYgnxQ6d6WRoQ5VdmdYPP7i2Y8ncgs3LXvLkTo',
+          'QmZqQ4rcmFJENpoU1fquqo5tmvFpEhJUaw4QHK5RRTKv54',
+          'QmP6yTkk5JBt2U9K8SPP56FRhP1HRMNiodAPRwk261HQUd',
+          'QmYx7u33nMY5yJCouGMxaZFhXY85Xry7hG6pbgkJW8eg8e',
+          'QmQDN29j4oWwNoKbtkJzeQbzMn4qM62q3o4PotN2JGpuFf',
+          'QmeSfyDz2oRQdcM9jLfKE6PHoY5mwgpoJ9h1n8PoGBW7K1',
+        ];
+
+        let imageTag = $('img').toArray();
+        let labelTag = $(".span_cid").toArray();
+
+        imageTag.forEach((img, index) => {
+          if (cidList.length >= index + 1) {
+            if (blockNsfw) {
+              if (index !== 8) {
+                $(img).attr("src", 'https://ipfs.io/ipfs/' + cidList[index]);
+              } else {
+                $(img).attr("src", 'https://ipfs.io/ipfs/' + 'Qmcq3QT4gRLBbMfLtkiw9VvCdMEWE7xoSVdiM64gKUR37t');
+              }
+            } else {
+              $(img).attr("src", 'https://ipfs.io/ipfs/' + cidList[index]);
+            }
+            $(labelTag[index]).html(cidList[index]);
+
+          }
+        });
+      }
+
+
+      $('#btn_enable_filterr').click(() => {
+        blockNsfw = !blockNsfw;
+        refreshCIDs();
+      });
+
+      refreshCIDs();
+
+    }
+  </script>
+  <div class="jumbotron mb-5 px-4">
+    <h1 class="display-4">Filterr IPFS Demo</h1>
+    <p class="lead">Instant content moderation tool for IPFS links</p>
+
+    <input type="checkbox" checked="true" class="btn-check" id="btn_enable_filterr" autocomplete="off">
+    <label class="btn btn-outline-primary" for="btn_enable_filterr">Enable Filterr</label>
+    &nbsp;&nbsp;<span>Filterr is enabled by default</span>
+  </div>
+  <div class="container">
+    <div class="row row-cols-3">
+      <div class="col mb-2">
+        <img style="width: 20em; height: 13em;">
+        <span class="span_cid"></span>
+      </div>
+      <div class="col mb-2">
+        <img style="width: 20em; height: 13em;">
+        <span class="span_cid"></span>
+      </div>
+      <div class="col mb-2">
+        <img style="width: 20em; height: 13em;">
+        <span class="span_cid"></span>
+      </div>
+      <div class="col mb-2">
+        <img style="width: 20em; height: 13em;">
+        <span class="span_cid"></span>
+      </div>
+      <div class="col mb-2">
+        <img style="width: 20em; height: 13em;">
+        <span class="span_cid"></span>
+      </div>
+      <div class="col mb-2">
+        <img style="width: 20em; height: 13em;">
+        <span class="span_cid"></span>
+      </div>
+      <div class="col mb-2">
+        <img style="width: 20em; height: 13em;">
+        <span class="span_cid"></span>
+      </div>
+      <div class="col mb-2">
+        <img style="width: 20em; height: 13em;">
+        <span class="span_cid"></span>
+      </div>
+      <div class="col mb-2">
+        <img style="width: 20em; height: 13em;">
+        <span class="span_cid"></span>
+      </div>
+</body>
+
+</html>
