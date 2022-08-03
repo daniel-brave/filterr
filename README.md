@@ -1,7 +1,7 @@
 # Filterr-IPFS
 
-[Filterr-IPFS](https://filterripfs.azurewebsites.net) is an instant content moderation tool for IPFS links(cid).
-[Demo](https://filterripfs.azurewebsites.net/demo)
+Filterr-IPFS is an instant content moderation tool for IPFS links (cid).
+[Demo](https://youtu.be/ALnR0c8ZGrc)
 
 It whitelists safe cids and provides it as a BloomFilter object.
 
@@ -23,17 +23,6 @@ The script includes the most recent bloomfilter data so you are filtering on the
 
 // test if your images are safe to view
 BloomFilter.test(cid);
-```
-
-## API Usage
-
-```javascript
-# Adding links to the main bloomfilter
-https://filterripfs.azurewebsites.net/cidfeed/add?cid=<cid>
-
-# Testing links at the main bloomfilter
-https://filterripfs.azurewebsites.net/cidfeed/test?cid=<cid>
-
 ```
 
 ## Notes
