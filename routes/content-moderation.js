@@ -18,7 +18,7 @@ router.get("/add", function (req, res, next) {
     return;
   }
 
-  // Analyse an image
+  // Analyse images
   analyzeImage(cid).then((analysis) => {
     if (
       analysis &&
@@ -77,6 +77,7 @@ router.get("/script", function (req, res, next) {
   res.send(script);
 });
 
+// Analyze Image
 function analyzeImage(cidUrl) {
   return new Promise((resolve, reject) => {
     // const data = JSON.stringify({ url: "https://ipfs.io/ipfs/QmSygLmdfeStPU7TTCTbazvrUCggtGh5aNEK6cLarWZVsX" });
@@ -113,6 +114,7 @@ function analyzeImage(cidUrl) {
   });
 }
 
+// Get CID
 router.get("/cid", function (req, res, next) {
   if (this.latestCID) {
     res.send(this.latestCID);
