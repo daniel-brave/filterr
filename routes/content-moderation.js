@@ -106,6 +106,7 @@ function analyzeImage(cidUrl) {
 
     req.on("error", (error) => {
       console.log("Error: " + error.message);
+      console.log("ERRORED");
       reject();
     });
 
@@ -117,6 +118,7 @@ function analyzeImage(cidUrl) {
 // Get CID
 router.get("/cid", function (req, res, next) {
   if (this.latestCID) {
+    console.log("CID LOG");
     res.send(this.latestCID);
   } else {
     res.send("Not yet there");
