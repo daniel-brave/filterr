@@ -6,6 +6,13 @@ const { CID } = require("multiformats/cid");
 var fs = require("fs");
 var path = require("path");
 
+// Health Check
+router.get("/ping", function (req, res) {
+  return res.send({
+    ping: 1,
+  });
+});
+
 router.get("/add", function (req, res, next) {
   if (!req.query.cid) {
     res.status(404).send("Send a query string as cid");
