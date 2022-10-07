@@ -13,7 +13,8 @@ router.get("/ping", function (req, res) {
   });
 });
 
-router.get("/add", function (req, res, next) {
+//
+router.get("/add/cid", function (req, res, next) {
   if (!req.query.cid) {
     res.status(404).send("Send a query string as cid");
     return;
@@ -66,7 +67,7 @@ router.get("/test", function (req, res, next) {
 });
 
 // Script the code
-router.get("/script", function (req, res, next) {
+router.get("/script/cid", function (req, res, next) {
   var templatePath = path.join(
     __dirname,
     "..",
